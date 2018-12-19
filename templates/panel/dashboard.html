@@ -1,0 +1,27 @@
+{% extends "panel/base.html" %}
+
+{% block content-section %}
+
+
+<table id="table" class="table table-hover">
+    <thead>
+    <tr>
+        <th scope="col">#</th>
+        <th scope="col">Username</th>
+        <th scope="col">Password</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for acc in accounts %}
+    <tr onclick="parent.location='{% url ';detail_profile;' acc.username  %}'">
+        <th scope="row">{{ acc.pk }}</th>
+        <td>{{ acc.username }}</td>
+        <td>{{ acc.password }}</td>
+
+
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+{% endblock content-section %}

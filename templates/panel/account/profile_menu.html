@@ -1,0 +1,60 @@
+{% block profile_menu %}
+{% block modal %}
+
+{% include 'panel/util/modal.html' %}
+
+{% endblock %}
+
+<div class="card">
+    <img class="card-img-top" src="{{ account.profilePicture.url }}" alt="Card image cap">
+    <div class="card-body">
+        <h5 class="card-title">{{ account.fullName }}</h5>
+        <p class="card-text">Biography : {{ account.biograpy }}</p>
+        <p class="card-text">Media : {{ account.mediaCount }}</p>
+    </div>
+    <ul class="list-group list-group-flush">
+        <a class="identifyingClass" data-id="followers" data-toogle="modal" data-toggle="modal"
+           data-target="#exampleModalCenter"
+           href="#exampleModalCenter">
+            <li class="list-group-item">Followers : {{ account.followers }}</li>
+        </a>
+
+        <a class="identifyingClass" data-id="followings" data-toogle="modal" data-toggle="modal"
+           data-target="#exampleModalCenter"
+           href="#exampleModalCenter">
+            <li class="list-group-item">Followings : {{ account.followings }}</li>
+        </a>
+        <li class="list-group-item">Created at {{ account.created_date.date }}</li>
+        <a href="">
+            <li class="list-group-item">Upload</li>
+        </a>
+    </ul>
+    <div class="card-body">
+        <a href="https://instagram.com/{{ account.username }}" target="_blank" class="card-link">Go
+            Profile</a>
+        <a href="{% url 'update' account.username %}" class="card-link">Refresh</a>
+    </div>
+    <ul class="list-group list-group-flush">
+
+        <li class="list-group-item-img">
+            {% for pic in media %}
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="{{ pic.2 }}" alt="Avatar">
+                    </div>
+                    <div class="flip-card-back">
+                        <h1>{{ pic.0 }}</h1>
+                        <p>{{ pic.2 }}</p>
+                    </div>
+                </div>
+            </div>
+
+            {% endfor %}
+        </li>
+    </ul>
+</div>
+<div class="card-body" style="padding-left: 12px;padding-top: 12px;">
+
+
+    {% endblock %}

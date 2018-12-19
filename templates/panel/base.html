@@ -1,0 +1,94 @@
+{# HTML5 declaration #}
+<!DOCTYPE html>
+<html>
+{# Make modifiable head elements #}
+<head>
+    <title>{% block title %}Home {% endblock title %}</title>
+    {% block head_favicon %}
+    {% load staticfiles %}
+    {% load static %}
+    <link rel="icon" type="image/png"
+          href="{{ STATIC_URL }}images/favicon.ico">
+    {% endblock head_favicon %}
+    {% block head_meta %}
+    {% block head_meta_charset %}
+    {#
+    <meta charset="UTF-8">
+    #}
+    <meta http-equiv="Content-Type"
+          content="text/html; charset=utf-8"/>
+    {% endblock head_meta_charset %}
+    {% block head_meta_contentlanguage %}
+    <meta http-equiv="Content-Language" value="en-US"/>
+    {% endblock head_meta_contentlanguage %}
+    {% block head_meta_viewport %}
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+    {% endblock head_meta_viewport %}
+    {% endblock head_meta %}
+    {% block head_js %}
+    <script type="text/javascript" src="{% static 'js/jquery-3.3.1.slim.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/popper.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/custom.js' %}"></script>
+
+    {% endblock head_js %}
+    {% block head_css %}
+    {% block head_css_site %}
+    {#
+    <link href="{{ STATIC_URL }}css/bootstrap.min.css" #}
+          {# rel="stylesheet" media="screen">
+    #}
+    {#
+    <link href="{{ STATIC_URL }}css/app.css" #}
+          {# rel="stylesheet" media="screen">
+    #}
+
+
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link href="{% static 'css/product.css' %}" rel="stylesheet">
+    {% endblock head_css_site %}
+    {% block head_css_section %}{% endblock head_css_section %}
+    {% block head_css_page %}{% endblock head_css_page %}
+    {% endblock head_css %}
+
+    {% block nav-section %}
+
+    <nav class="site-header sticky-top py-1">
+        <div class="container d-flex flex-column flex-md-row justify-content-between">
+            <a class="py-2" href="#">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                     stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                     class="d-block mx-auto">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <line x1="14.31" y1="8" x2="20.05" y2="17.94"></line>
+                    <line x1="9.69" y1="8" x2="21.17" y2="8"></line>
+                    <line x1="7.38" y1="12" x2="13.12" y2="2.06"></line>
+                    <line x1="9.69" y1="16" x2="3.95" y2="6.06"></line>
+                    <line x1="14.31" y1="16" x2="2.83" y2="16"></line>
+                    <line x1="16.62" y1="12" x2="10.88" y2="21.94"></line>
+                </svg>
+            </a>
+            <a class="py-2 d-none d-md-inline-block" href="{% url 'home' %}">Home</a>
+            <a class="py-2 d-none d-md-inline-block" href="{% url 'dashboard' %}">Dashboard</a>
+            <a class="py-2 d-none d-md-inline-block" href="{% url 'register' %}">Register Instagram</a>
+        </div>
+    </nav>
+    {% if message != "" and message != None %}
+    <div class="alert alert-primary" role="alert">
+        {{ message }}
+    </div>
+    {% endif %}
+    {% endblock nav-section %}
+
+</head>
+
+<body>
+{% block content-section %}
+{% endblock content-section %}
+</body>
+
+<footer>
+    {% block footer-section %}
+    {% endblock footer-section %}
+</footer>

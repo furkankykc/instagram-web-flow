@@ -1,0 +1,11 @@
+{% extends 'panel/base.html' %}
+
+
+{% block content-section %}
+<form method="POST">
+    {% csrf_token %}
+    {{ folllowForm }}
+    <button type="submit">Submit</button>
+</form>
+
+{% endblock %}

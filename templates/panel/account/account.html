@@ -1,0 +1,21 @@
+{% extends "panel/base.html" %}
+
+
+{% block content-section %}
+
+
+<!-- Modal -->
+
+<div class="row">
+    <div class="col-sm-4">
+        {% block profile_menu %}{% include 'panel/account/profile_menu.html' %}{% endblock %}
+    </div>
+</div>
+<div class="col-sm-8">
+    {% block right_menu %}{% include 'panel/account/right_menu.html' %}{% endblock %}
+
+
+</div>
+</div>
+
+{% endblock content-section %}

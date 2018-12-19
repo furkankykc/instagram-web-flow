@@ -1,0 +1,36 @@
+{% extends "panel/base.html" %}
+
+{% block title %}Register Page{% endblock title %}
+{% block content-section %}
+<div class="col-md-4">
+    <form method="POST" class="post-form">{% csrf_token %}
+
+        <div class="form-group">
+
+            <label>Name</label>
+            <input class="form-control" name="name" type="text">
+            <label>Username</label>
+            <input class="form-control" name="username" type="text">
+            <label>Email</label>
+            <input class="form-control" name="email" type="email">
+            <label>Password</label>
+            <input class="form-control" name="password" type="password">
+        </div>
+
+        <div class="pagination justify-content-end">
+            <input class="btn btn-primary" name="submit" type="submit" value="Create">
+        </div>
+    </form>
+</div>
+
+
+{#
+<form method="POST" class="post-form">{% csrf_token %}#}
+    {# {{ form.as_p }}#}
+    {#
+    <button type="submit" class="save btn btn-default">Save</button>
+    #}
+    {#
+</form>#}
+{% endblock content-section %}
+</html>
